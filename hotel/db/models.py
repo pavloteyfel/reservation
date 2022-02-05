@@ -18,19 +18,19 @@ class DBCustomer(Base):
 class DBRoom(Base):
     __tablename__ = "room"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    number: Column(String(250), nullable=False)
-    size: Column(Integer, nullable=False)
-    price: Column(Integer, nullable=False)
+    number = Column(String(250), nullable=False)
+    size = Column(Integer, nullable=False)
+    price = Column(Integer, nullable=False)
 
 
 class DBBooking(Base):
     __tablename__ = "booking"
     id = Column(Integer, primary_key=True, autoincrement=True)
-    from_date: Column(Date, nullable=False)
-    to_date: Column(Date, nullable=False)
-    price: Column(Integer, nullable=False)
+    from_date = Column(Date, nullable=False)
+    to_date = Column(Date, nullable=False)
+    price = Column(Integer, nullable=False)
 
     customer_id = Column(Integer, ForeignKey("customer.id"))
-    customer: relationship(DBCustomer)
+    customer = relationship(DBCustomer)
     room_id = Column(Integer, ForeignKey("room.id"))
-    room: relationship(DBRoom)
+    room = relationship(DBRoom)
