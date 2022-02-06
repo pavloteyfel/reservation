@@ -1,5 +1,3 @@
-
-from virtualenv import session_via_cli
 from hotel.db.models import DBRoom
 from hotel.db.engine import DBSession
 
