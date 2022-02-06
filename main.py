@@ -18,8 +18,3 @@ def startup_event():
 def read_root():
     return "The server is running."
 
-@app.get("/rooms")
-def real_all_rooms():
-    session = DBSession()
-    rooms = session.query(DBRoom).all()
-    return rooms
