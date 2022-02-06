@@ -1,4 +1,3 @@
-from re import I
 from fastapi import APIRouter
 from hotel.operations.rooms import read_all_rooms, read_room
 
