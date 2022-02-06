@@ -2,9 +2,14 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql.sqltypes import Integer, String, Date
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.orm import relationship
+from typing import Any
 
 
 Base = declarative_base()
+
+
+def to_dict(obj: Base) -> dict[str, Any]:
+    return {c.name: getattr(obj, c.name) for c in obj.__table__.columns}
 
 
 class DBCustomer(Base):
