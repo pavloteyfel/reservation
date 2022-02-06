@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 
-from hotel.db.engine import init_db, DBSession
-from hotel.db.models import DBRoom
-
+from hotel.db.engine import init_db
+from hotel.routers import rooms
 
 app = FastAPI()
 
@@ -18,3 +17,4 @@ def startup_event():
 def read_root():
     return "The server is running."
 
+app.include_router(rooms.router)

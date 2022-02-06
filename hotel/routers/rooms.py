@@ -1,8 +1,10 @@
+from re import I
 from fastapi import APIRouter
-from hotel.operations import read_all_rooms
+from hotel.operations.rooms import read_all_rooms
 
 router = APIRouter()
 
-@router.get("rooms")
+@router.get("/rooms")
 def api_read_all_rooms():
     return read_all_rooms()
+
