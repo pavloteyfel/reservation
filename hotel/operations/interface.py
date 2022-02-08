@@ -1,22 +1,20 @@
-from typing import Protocol, Any
+from typing import Protocol
 
-
-class DataObject:
-    dict[str, Any]
+from pydantic.typing import DictStrAny
 
 
 class DataInterface(Protocol):
-    def read_by_id(self, id: int) -> DataObject:
+    def read_by_id(self, id: int) -> DictStrAny:
         ...
 
-    def read_all(self) -> list[DataObject]:
+    def read_all(self) -> list[DictStrAny]:
         ...
 
-    def create(self, data: DataObject) -> DataObject:
+    def create(self, data: DictStrAny) -> DictStrAny:
         ...
 
-    def update(self, id: int, data: DataObject) -> DataObject:
+    def update(self, id: int, data: DictStrAny) -> DictStrAny:
         ...
 
-    def delete(self, id: int) -> DataObject:
+    def delete(self, id: int) -> DictStrAny:
         ...
