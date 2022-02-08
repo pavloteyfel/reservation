@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+
 from hotel.db.db_interface import DBInterface
 from hotel.db.models import DBBooking, DBRoom
 from hotel.operations.bookings import (
