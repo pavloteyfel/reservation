@@ -1,13 +1,16 @@
-from hotel.db.models import DBCustomer, to_dict
-from hotel.db.engine import DBSession
-from pydantic import BaseModel
 from typing import Optional
+
+from pydantic import BaseModel
+
+from hotel.db.engine import DBSession
+from hotel.db.models import DBCustomer, to_dict
 
 
 class CustomerCreateData(BaseModel):
     first_name: str
     last_name: str
     email_address: str
+
 
 class CustomerUpdateData(BaseModel):
     first_name: Optional[str]
@@ -24,7 +27,7 @@ def read_all_customers():
 def read_customer(customer_id: int):
     session = DBSession()
     customer = session.query(DBCustomer).get(customer_id)
-    return to_dict(customer) 
+    return to_dict(customer)
 
 
 def create_customer(data: CustomerCreateData):
@@ -33,6 +36,7 @@ def create_customer(data: CustomerCreateData):
     session.add(customer)
     session.commit()
     return to_dict(customer)
+
 
 def update_customer(customer_id: int, data: CustomerUpdateData):
     session = DBSession()
